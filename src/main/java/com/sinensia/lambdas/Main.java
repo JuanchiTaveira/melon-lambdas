@@ -30,12 +30,12 @@ public class Main {
     }
 
     private static List<Melon> filterByType(List<Melon> melons, String type) {
-        List<Melon> bailans = new ArrayList<Melon>();
+        List<Melon> filtered = new ArrayList<Melon>();
         for (Melon melon : melons) {
             if (melon.getType().equals(type)) {
-                bailans.add(melon);
+                filtered.add(melon);
             }
         }
-        return bailans;
+        return filtered;
     }
 }
