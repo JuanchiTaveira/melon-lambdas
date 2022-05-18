@@ -19,7 +19,7 @@ public class Main {
             System.out.println(melons.get(i).toString());
         }
 
-        List<Melon> bailans = filterByType(melons,"Bailan");
+        List<Melon> bailans = Filters.filterByType(melons,"Bailan");
 
         System.out.println("\n-------------------------------------\n");
 
@@ -29,13 +29,4 @@ public class Main {
 
     }
 
-    private static List<Melon> filterByType(List<Melon> melons, String type) {
-        List<Melon> filtered = new ArrayList<Melon>();
-        for (Melon melon : melons) {
-            if (melon.getType().equals(type)) {
-                filtered.add(melon);
-            }
-        }
-        return filtered;
-    }
 }
