@@ -13,13 +13,17 @@ public abstract class Filters {
         return melon != null;
     }
 
-    public static List<Melon> filterMelons(List<Melon> melons, MelonPredicate predicate) {
-        List<Melon> filtered = new ArrayList<Melon>();
-        for (Melon melon : melons) {
-            if(validMelon(melon) && predicate.test(melon))
-                filtered.add(melon);
+    public static <T> List<T> filter(List<T> list, Predicate<T> predicate) {
+        if(list==null) {
+            throw new IllegalArgumentException("List cannot be null");
         }
-        return filtered;
+        List<T> result = new ArrayList<>();
+        for(T t: list) {
+            if(t!=null && predicate.test(t)) {
+                result.add(t);
+            }
+        }
+        return result;
     }
 
     /*public static List<Melon> filterByType(List<Melon> melons, String type) {
