@@ -22,13 +22,14 @@ public class Main {
 
     }
 
-    private static List<Melon> filterByType(List<Melon> melons, String bailan) {
-        List<Melon> bailan;
-        for (int i = 0; i < melons.size(); ++i) {
-            if (melons.get(i).getType() == "Bailan") {
-                bailan.add(melons.get(i));
-
+    private static List<Melon> filterByType(List<Melon> melons, String type) {
+        List<Melon> bailan = null;
+        for (Melon melon : melons) {
+            if (melon.getType().equals(type)) {
+                bailan.add(melon);
+                System.out.println(melon.toString());
             }
         }
+        return bailan;
     }
 }
