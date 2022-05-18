@@ -15,16 +15,33 @@ public class Main {
                 new Melon("Bailan", 1300, "China")
         );
 
-        for (int i = 0; i < melons.size(); ++i) {
-            System.out.println(melons.get(i).toString());
+        for (Melon melon : melons) {
+            System.out.println(melon);
         }
 
-        List<Melon> bailans = Filters.filterByType(melons,"Bailan");
+        //Filter by type
+        /*List<Melon> bailans = Filters.filterMelon(melons,"Bailan");
 
-        System.out.println("\n-------------------------------------\n");
+        System.out.println("\n---------------- Melons with type = 'Bailan' ---------------------\n");
 
         for (Melon bailan : bailans) {
             System.out.println("bailan = " + bailan);
+        }*/
+
+        //Filter by weight
+        System.out.println("\n---------------- Melons with weight > 4000g ---------------------\n");
+        HeavyMelonPredicate heavyMelonPredicate = new HeavyMelonPredicate();
+        List<Melon> founds = Filters.filterMelons(melons,heavyMelonPredicate);
+        for (Melon found : founds) {
+            System.out.println("found = " + found);
+        }
+
+        //Gac melons
+        System.out.println("\n---------------- Gac melons ---------------------\n");
+        GacMelonPredicate gacMelonPredicate = new GacMelonPredicate();
+        List<Melon> gacs = Filters.filterMelons(melons,gacMelonPredicate);
+        for (Melon gac : gacs) {
+            System.out.println("gac = " + gac);
         }
 
     }
