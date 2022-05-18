@@ -18,5 +18,17 @@ public class Main {
             System.out.println(melons.get(i).toString());
         }
 
+        List<Melon> bailan = filterByType(melons,"Bailan");
+
+    }
+
+    private static List<Melon> filterByType(List<Melon> melons, String bailan) {
+        List<Melon> bailan;
+        for (int i = 0; i < melons.size(); ++i) {
+            if (melons.get(i).getType() == "Bailan") {
+                bailan.add(melons.get(i));
+
+            }
+        }
     }
 }
