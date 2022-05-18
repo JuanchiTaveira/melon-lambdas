@@ -1,8 +1,11 @@
 package com.sinensia.lambdas;
 
+import org.w3c.dom.ls.LSOutput;
+
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+import java.util.Optional;
 
 public class Main {
 
@@ -17,20 +20,39 @@ public class Main {
 
         //Filter by weight
         System.out.println("\n---------------- Melons with weight > 4000g ---------------------\n");
-        HeavyMelonPredicate heavyMelonPredicate = new HeavyMelonPredicate();
         List<Melon> founds = Filters.filter(melons, (Melon melon) -> melon.getWeight() > 4000);
         for (Melon found : founds) {
             System.out.println("found = " + found);
         }
 
-        //Gac melons
+        //Filter gac melons
         System.out.println("\n---------------- Gac melons ---------------------\n");
-        GacMelonPredicate gacMelonPredicate = new GacMelonPredicate();
         List<Melon> gacs = Filters.filter(melons,(Melon melon) -> "gac".equalsIgnoreCase(melon.getType()));
         for (Melon gac : gacs) {
             System.out.println("gac = " + gac);
         }
 
+        //Apply streams
+        System.out.println("\n---------------- Print melons with stream().forEach() ---------------------\n");
+        melons.stream()
+                .forEach(melon -> System.out.println("melon = " + melon));
+
+        System.out.println("\n---------------- Filter gac melons with stream().filter() ---------------------\n");
+        melons.stream()
+                .filter(melon -> "gac".equalsIgnoreCase(melon.getType()))
+                .forEach(melon -> System.out.println("melon = " + melon));
+
+        System.out.println("\n---------------- First element of the stream ---------------------\n");
+        melons.stream()
+                .findFirst()
+                .ifPresent(first -> System.out.println("first = " + first));
+
+        System.out.println("\n---------------- Map average weight ---------------------\n");
+        melons.stream()
+                .mapToInt(melon -> melon.getWeight())
+                .average()
+                /*.ifPresent(average -> System.out.println("Average weight = " + average))*/
+                .ifPresentOrElse(average -> System.out.println("Average weight = " + average) , () -> System.out.println("Lista vacía"));
     }
 
 }

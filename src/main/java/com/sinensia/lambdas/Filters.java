@@ -26,23 +26,4 @@ public abstract class Filters {
         return result;
     }
 
-    /*public static List<Melon> filterByType(List<Melon> melons, String type) {
-        List<Melon> filtered = new ArrayList<Melon>();
-        for (Melon melon : melons) {
-            if (melon.getType().equalsIgnoreCase(type)) {
-                filtered.add(melon);
-            }
-        }
-        return filtered;
-    }
-
-    public static List<Melon> filterByWeight(List<Melon> melons, int weight) {
-        List<Melon> filtered = new ArrayList<Melon>();
-        for (Melon melon : melons) {
-            if (validMelon(melon) && melon.getWeight() == weight) {
-                filtered.add(melon);
-            }
-        }
-        return filtered;
-    }*/
 }
