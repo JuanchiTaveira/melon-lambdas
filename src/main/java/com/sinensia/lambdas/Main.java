@@ -1,5 +1,6 @@
 package com.sinensia.lambdas;
 
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
@@ -18,18 +19,23 @@ public class Main {
             System.out.println(melons.get(i).toString());
         }
 
-        List<Melon> bailan = filterByType(melons,"Bailan");
+        List<Melon> bailans = filterByType(melons,"Bailan");
+
+        System.out.println("\n-------------------------------------\n");
+
+        for (Melon bailan : bailans) {
+            System.out.println("bailan = " + bailan);
+        }
 
     }
 
     private static List<Melon> filterByType(List<Melon> melons, String type) {
-        List<Melon> bailan = null;
+        List<Melon> bailans = new ArrayList<Melon>();
         for (Melon melon : melons) {
             if (melon.getType().equals(type)) {
-                bailan.add(melon);
-                System.out.println(melon.toString());
+                bailans.add(melon);
             }
         }
-        return bailan;
+        return bailans;
     }
 }
